@@ -2225,52 +2225,58 @@
         </div>
     </section>
 
-    <!-- Quote Section -->
+    <!-- Quote Section - UPDATED WITH FORMSPREE -->
     <section class="quote-section" id="quote">
         <div class="quote-container">
-            <form class="quote-form">
+            <!-- CHANGE THIS FORM ACTION URL AFTER YOU CREATE YOUR FORMSPREE ACCOUNT -->
+            <form class="quote-form" action="https://formspree.io/f/xvzqjbwq" method="POST">
+                <!-- Formspree hidden fields -->
+                <input type="hidden" name="_subject" value="🚚 NEW QUOTE REQUEST - Proper Delivery Services">
+                <input type="hidden" name="_replyto" value="" id="reply-to-email">
+                <input type="text" name="_gotcha" style="display:none;">
+                
                 <h2>Get a Free Quote</h2>
                 <p>Fill out the form below and our logistics experts will contact you within 24 hours</p>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="company">Company Name</label>
-                        <input type="text" id="company">
+                        <input type="text" id="company" name="company">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" required>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="service">Service Needed *</label>
-                        <select id="service" required>
+                        <select id="service" name="service" required>
                             <option value="">Select a service</option>
-                            <option value="express">Load Searching & Booking</option>
-                            <option value="international">Route Planning</option>
-                            <option value="cold-chain">Driver Coordination</option>
-                            <option value="warehousing">Paperwork & Documentation</option>
-                            <option value="freight">Tracking & Updates</option>
-                            <option value="secure">Broker & Customer Communication</option>
-                            <option value="custom">Full Dispatch</option>
+                            <option value="load-searching">Load Searching & Booking</option>
+                            <option value="route-planning">Route Planning</option>
+                            <option value="driver-coordination">Driver Coordination</option>
+                            <option value="paperwork">Paperwork & Documentation</option>
+                            <option value="tracking">Tracking & Updates</option>
+                            <option value="broker-communication">Broker & Customer Communication</option>
+                            <option value="full-dispatch">Full Dispatch</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="shipment-type">Shipment Type</label>
-                        <select id="shipment-type">
+                        <select id="shipment-type" name="shipment_type">
                             <option value="general">General Cargo</option>
                             <option value="perishable">Perishable Goods</option>
                             <option value="hazardous">Hazardous Materials</option>
@@ -2283,17 +2289,17 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="origin">Origin City *</label>
-                        <input type="text" id="origin" required>
+                        <input type="text" id="origin" name="origin" required>
                     </div>
                     <div class="form-group">
                         <label for="destination">Destination City *</label>
-                        <input type="text" id="destination" required>
+                        <input type="text" id="destination" name="destination" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="description">Shipment Description *</label>
-                    <textarea id="description"
+                    <textarea id="description" name="description"
                         placeholder="Please describe your shipment including dimensions, weight, quantity, and any special requirements..."
                         required></textarea>
                 </div>
@@ -2421,11 +2427,21 @@
             });
         });
 
-        // Form submission
+        // Form submission - UPDATED FOR FORMSPREE
         document.querySelector('.quote-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Thank you for your quote request! Our logistics team will contact you within 24 hours.');
-            this.reset();
+            // Form will submit to Formspree automatically
+            // Just show a confirmation message
+            
+            // Set the reply-to email for auto-response
+            const emailField = document.getElementById('email');
+            if (emailField.value) {
+                document.querySelector('input[name="_replyto"]').value = emailField.value;
+            }
+            
+            // Show success message after a short delay
+            setTimeout(() => {
+                alert('Thank you for your quote request! We have received your information and will contact you within 24 hours.');
+            }, 100);
         });
 
         // Stats counter animation - SIMPLIFIED VERSION
