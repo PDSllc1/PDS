@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proper Delivery Services</title>
     <link rel="icon" type="png" href="imges/logo.png">
@@ -35,7 +35,7 @@
 
         /* Header & Navigation */
         header {
-            background-color: black;
+            background-color: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: fixed;
@@ -175,7 +175,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('imges/powerOnly2.jpg');
             background-size: cover;
             background-position: center;
@@ -194,7 +194,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
         }
 
         .hero-content {
@@ -610,58 +610,86 @@
             font-family: Georgia, serif;
         }
 
-        /* Clients/Stats Section */
+        /* Clients/Stats Section - UPDATED */
         .clients {
-            padding: 80px 20px;
-            background: #000;
-            color: white;
-            text-align: center;
+            padding: 8rem 2rem;
+            background-color: var(--primary-black);
+            position: relative;
         }
 
-        .section-title h2 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #ccc;
+        .clients::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
         }
 
         .stats-grid {
-            margin-top: 50px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
         }
 
         .stat-card {
-            background: #111;
-            padding: 35px;
+            background: linear-gradient(145deg, #222222, #1a1a1a);
             border-radius: 15px;
-            transition: 0.4s;
-            border: 1px solid #222;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 25px #ffc10755;
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
         }
 
         .stat-icon {
-            font-size: 40px;
-            color: #ffc107;
-            margin-bottom: 15px;
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
 
         .stat-number {
-            font-size: 38px;
-            font-weight: bold;
-            color: #ffc107;
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
         }
 
         .stat-label {
-            margin-top: 10px;
-            font-size: 18px;
+            color: var(--medium-text);
+            font-size: 1.3rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Truck Fleet Section */
@@ -1577,50 +1605,39 @@
         </div>
     </section>
 
-    <!-- Clients/Stats Section -->
+    <!-- Clients/Stats Section - UPDATED -->
     <section class="clients" id="clients">
-    <div class="section-title">
-        <h2>Our Reach & Impact</h2>
-        <p>Trusted by industry leaders across the globe</p>
-    </div>
-
-    <div class="stats-grid">
-
-        <div class="stat-card">
-            <i class="fas fa-calendar-alt stat-icon"></i>
-            <div class="stat-number">
-                <span class="counter" data-year="2015">0</span>+
-            </div>
-            <div class="stat-label">Years Experience</div>
+        <div class="section-title">
+            <h2>Our Reach & Impact</h2>
+            <p>Trusted by industry leaders across the globe</p>
         </div>
 
-        <div class="stat-card">
-            <i class="fas fa-truck stat-icon"></i>
-            <div class="stat-number">
-                <span class="counter" data-target="1000">0</span>+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-calendar-alt stat-icon"></i>
+                <div class="stat-number" data-year="2015">9+</div>
+                <div class="stat-label">Years Experience</div>
             </div>
-            <div class="stat-label">Carriers</div>
-        </div>
 
-        <div class="stat-card">
-            <i class="fas fa-map-marked-alt stat-icon"></i>
-            <div class="stat-number">
-                <span class="counter" data-target="48">0</span>
+            <div class="stat-card">
+                <i class="fas fa-truck stat-icon"></i>
+                <div class="stat-number" data-target="1000">1000+</div>
+                <div class="stat-label">Carriers</div>
             </div>
-            <div class="stat-label">States Covered</div>
-        </div>
 
-        <div class="stat-card">
-            <i class="fas fa-box-open stat-icon"></i>
-            <div class="stat-number">
-                <span class="counter" data-target="8000">0</span>+
+            <div class="stat-card">
+                <i class="fas fa-map-marked-alt stat-icon"></i>
+                <div class="stat-number" data-target="48">48</div>
+                <div class="stat-label">States Covered</div>
             </div>
-            <div class="stat-label">Loads Delivered</div>
+
+            <div class="stat-card">
+                <i class="fas fa-box-open stat-icon"></i>
+                <div class="stat-number" data-target="8000">8000+</div>
+                <div class="stat-label">Loads Delivered</div>
+            </div>
         </div>
-
-    </div>
-</section>
-
+    </section>
 
     <!-- Truck Fleet Section -->
     <section class="trucks" id="trucks">
@@ -2371,70 +2388,71 @@
             this.reset();
         });
 
-        // Stats counter animation - FIXED VERSION
-        const counters = document.querySelectorAll(".counter");
-
-        const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-
-        const animateCounter = (counter) => {
-
+        // Stats counter animation - SIMPLIFIED VERSION
+        const animateCounter = (element) => {
+            const finalValue = element.getAttribute('data-target');
+            const year = element.getAttribute('data-year');
             let target;
-
-            // Experience auto calculate
-            if (counter.dataset.year) {
-                target = new Date().getFullYear() - counter.dataset.year;
+            
+            if (year) {
+                // Calculate years of experience
+                target = new Date().getFullYear() - parseInt(year);
             } else {
-                target = parseInt(counter.dataset.target);
+                target = parseInt(finalValue);
             }
-
-            let start = 0;
+            
             const duration = 2000;
             const startTime = performance.now();
-
-            const update = (currentTime) => {
-
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                const easedProgress = easeOut(progress);
-                const value = Math.floor(easedProgress * target);
-
-                counter.textContent = value.toLocaleString();
-
+            const startValue = 0;
+            
+            const updateCounter = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                // Easing function for smooth animation
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentValue = Math.floor(easeOutQuart * target);
+                
+                element.textContent = currentValue.toLocaleString();
+                
                 if (progress < 1) {
-                    requestAnimationFrame(update);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    // Add plus sign if needed
+                    if (finalValue && (finalValue.includes('+') || finalValue > 1000)) {
+                        element.textContent = target.toLocaleString() + '+';
+                    } else {
+                        element.textContent = target.toLocaleString();
+                    }
                 }
             };
-
-            requestAnimationFrame(update);
+            
+            requestAnimationFrame(updateCounter);
         };
 
-
-        // Scroll Observer
-        const observer = new IntersectionObserver(entries => {
-
+        // Initialize counters when section is in view
+        const statsSection = document.querySelector('.clients');
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-
                 if (entry.isIntersecting) {
-
-                    entry.target.querySelectorAll(".counter").forEach(counter => {
-                        animateCounter(counter);
+                    statNumbers.forEach(stat => {
+                        // Store original text content
+                        const originalText = stat.textContent;
+                        // Clear text for animation
+                        stat.textContent = '0';
+                        // Start animation
+                        setTimeout(() => {
+                            animateCounter(stat);
+                        }, 300);
                     });
-
                     observer.unobserve(entry.target);
                 }
-
             });
-
-        }, { threshold: 0.4 });
-
-        observer.observe(document.querySelector(".clients"));
-
-        // Set initial opacity for stat cards
-        document.querySelectorAll('.stat-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px) scale(0.95)';
-        });
+        }, { threshold: 0.5 });
+        
+        observer.observe(statsSection);
 
         // Truck Slider Functionality
         const truckSlider = document.getElementById('truckSlider');
@@ -2507,21 +2525,6 @@
             }
         });
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
-
-    <script>
-        $('.stat-number').counterUp({
-            delay: 10,
-            time: 1500
-        });
-    </script>
-
-
 </body>
 
 </html>
