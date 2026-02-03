@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proper Delivery Services</title>
+    <link rel="icon" type="png" href="imges/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-black: #000000;
+            --secondary-black: #1a1a1a;
+            --accent-gold: #FFD700;
+            --accent-orange: #FF6B35;
+            --light-text: #FFFFFF;
+            --medium-text: #CCCCCC;
+            --card-dark: #222222;
+            --border-glow: rgba(255, 215, 0, 0.3);
+        }
+
+        body {
+            background-color: var(--primary-black);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: black;
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-glow);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: var(--primary-black);
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 900;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .logo-text h1 {
+            font-size: 32px;
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 15px;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            padding: 0.6rem 0;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-orange));
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .quote-btn {
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            color: var(--primary-black);
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('imges/powerOnly2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 12rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            background: linear-gradient(to right, var(--accent-gold), #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--medium-text);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            color: var(--primary-black);
+            padding: 1.5rem 3.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 2rem;
+            background-color: var(--secondary-black);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-orange));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--medium-text);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            padding: 2.5rem;
+            height: 100%;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-orange));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            color: var(--accent-gold);
+            font-size: 50px;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .service-content h3 {
+            color: var(--light-text);
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .service-content p {
+            color: var(--medium-text);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 6rem;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-glow), transparent);
+        }
+
+        .about-content {
+            flex: 1;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--light-text);
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-orange));
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            color: var(--medium-text);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--border-glow);
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 8rem 2rem;
+            background-color: var(--secondary-black);
+            position: relative;
+        }
+
+        .reviews::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+        }
+
+        .review-card {
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border-radius: 15px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--accent-orange));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .review-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .review-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary-black);
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .review-info h4 {
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .review-info p {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .review-stars {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .review-text {
+            color: var(--medium-text);
+            font-style: italic;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            font-weight: 300;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .review-text::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            font-size: 3rem;
+            color: var(--accent-gold);
+            opacity: 0.5;
+            font-family: Georgia, serif;
+        }
+
+        /* Clients/Stats Section */
+        .clients {
+            padding: 80px 20px;
+            background: #000;
+            color: white;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #ccc;
+        }
+
+        .stats-grid {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: #111;
+            padding: 35px;
+            border-radius: 15px;
+            transition: 0.4s;
+            border: 1px solid #222;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px #ffc10755;
+        }
+
+        .stat-icon {
+            font-size: 40px;
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 38px;
+            font-weight: bold;
+            color: #ffc107;
+        }
+
+        .stat-label {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        /* Truck Fleet Section */
+        .trucks {
+            padding: 8rem 2rem;
+            background-color: var(--secondary-black);
+            position: relative;
+        }
+
+        .trucks::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .truck-container {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 2px solid var(--border-glow);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .truck-slider {
+            display: flex;
+            width: 1000%;
+            height: 100%;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .truck-slide {
+            width: 10%;
+            height: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .truck-card {
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border-radius: 15px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .truck-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .truck-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .truck-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .truck-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            color: var(--primary-black);
+            font-weight: 900;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .truck-details h3 {
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .truck-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spec-icon {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .spec-content h4 {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .spec-content p {
+            color: var(--medium-text);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .truck-controls {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .truck-btn {
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            color: var(--primary-black);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .truck-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .truck-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .truck-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .truck-dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            padding: 8rem 2rem;
+            background-color: var(--primary-black);
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .quote-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border-radius: 25px;
+            padding: 4rem;
+            border: 2px solid var(--border-glow);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotate(45deg) translateX(-100%);
+            }
+
+            100% {
+                transform: rotate(45deg) translateX(100%);
+            }
+        }
+
+        .quote-form h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-form p {
+            color: var(--medium-text);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            color: var(--light-text);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            font-weight: 300;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            color: var(--primary-black);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-black);
+            padding: 6rem 2rem 2rem;
+            border-top: 2px solid var(--border-glow);
+            position: relative;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-orange));
+            border-radius: 2px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-column a {
+            color: var(--medium-text);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 300;
+            font-size: 1.1rem;
+            display: inline-block;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: var(--medium-text);
+            font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-top: 0.3rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            color: var(--accent-gold);
+            transition: all 0.3s;
+            font-size: 1.3rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-black);
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            border-color: var(--accent-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            font-size: 1rem;
+            color: var(--medium-text);
+            font-weight: 300;
+        }
+
+        .copyright a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .copyright a:hover {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .about {
+                flex-direction: column;
+                gap: 5rem;
+            }
+
+            .hero h2 {
+                font-size: 3.5rem;
+            }
+
+            .truck-card {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+
+            .truck-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.95);
+                padding: 6rem 2rem;
+                gap: 2.5rem;
+                z-index: 999;
+                overflow-y: auto;
+                backdrop-filter: blur(10px);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1000;
+            }
+
+            .hero h2 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+            }
+
+            .section-title h2,
+            .about-content h2,
+            .quote-form h2 {
+                font-size: 2.8rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .services-grid,
+            .reviews-grid,
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .truck-container {
+                height: 700px;
+            }
+
+            .truck-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 10rem 1.5rem;
+                margin-top: 70px;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .services,
+            .about,
+            .reviews,
+            .clients,
+            .trucks,
+            .quote-section {
+                padding: 6rem 1.5rem;
+            }
+
+            .quote-container {
+                padding: 3rem;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
+            }
+
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .logo-text h1 {
+                font-size: 28px;
+            }
+
+            .truck-container {
+                height: 600px;
+            }
+
+            .truck-card {
+                padding: 2rem;
+            }
+
+            .truck-details h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 8rem 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-button,
+            .quote-btn,
+            .submit-btn {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.1rem;
+            }
+
+            .services-grid,
+            .reviews-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card,
+            .review-card,
+            .stat-card {
+                padding: 2rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .truck-container {
+                height: 700px;
+            }
+
+            .truck-slide {
+                padding: 1.5rem;
+            }
+
+            .truck-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            color: var(--primary-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            border: none;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">PDS</div>
+                <div class="logo-text">
+                    <div class="tagline">We Move Your <br>Business Forward</div>
+                </div>
+            </div>
+
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#clients">Clients & Stats</a></li>
+                    <li><a href="#trucks">Our Fleet</a></li>
+                    <li><a href="#quote" class="quote-btn">Get Quote</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Proper Delivery Services</h2>
+            <p>Proper Delivery Services provides reliable, secure, and efficient transportation solutions for businesses
+                worldwide. With cutting-edge technology and 24/7 monitoring, we ensure your shipments arrive on time,
+                every time.</p>
+            <a href="#quote" class="cta-button">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Comprehensive logistics solutions tailored to meet your business needs</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Load Searching & Booking</h3>
+                    <p>We find suitable and high-paying loads from load boards and brokers according to truck
+                        availability. Our team ensures timely booking to keep trucks moving and profitable.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-route"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Route Planning</h3>
+                    <p>We plan the most efficient and cost-effective routes for drivers. This helps reduce fuel costs,
+                        avoid delays, and ensure on-time delivery.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Driver Coordination</h3>
+                    <p>We stay in constant communication with drivers to provide load details, pickup and delivery
+                        instructions, and support during transit.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Paperwork & Documentation</h3>
+                    <p>We handle all dispatch-related paperwork including rate confirmations, Bills of Lading (BOL), and
+                        other shipment documents to ensure smooth operations.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Tracking & Updates</h3>
+                    <p>We monitor truck locations in real-time and provide regular updates to brokers and customers for
+                        transparency and reliability.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Broker & Customer Communication</h3>
+                    <p>We manage negotiations, booking confirmations, and all communication with brokers and customers
+                        to maintain strong business relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Proper Delivery Services</h2>
+            <p>Founded with a commitment to excellence in truck dispatching, our company has grown by providing reliable
+                load management and driver support services. Our focus on transparency, efficiency, and customer
+                satisfaction has helped us build strong relationships with drivers and brokers.</p>
+
+            <p>We utilize modern dispatch technology, live tracking systems, and digital documentation to improve
+                efficiency, enhance communication, and provide full visibility of truck movements.</p>
+
+            <p>Our dedicated dispatch team works closely with drivers, brokers, and customers to ensure efficient load
+                management, real-time tracking, and reliable transportation services.</p>
+
+            <a href="#quote" class="cta-button" style="margin-top: 2rem;">Partner With Us</a>
+        </div>
+
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="PDS Global Operations Center">
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="section-title">
+            <h2>Client Reviews</h2>
+            <p>What our customers say about working with Proper Delivery Services</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">JP</div>
+                    <div class="review-info">
+                        <h4>Jabara Pearson</h4>
+                        <p>Owner, Persons Quality Cargo, LLC</p>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"PDS has transformed our supply chain. Their real-time tracking and 99.7% on-time
+                    delivery rate have significantly reduced our logistics costs. Highly recommended!"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">CB</div>
+                    <div class="review-info">
+                        <h4>Chakir Baraat</h4>
+                        <p>Owner Operator, Shaq Trucking LLC</p>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="review-text">"The cold chain solution for our pharmaceutical products is exceptional.
+                    Temperature control is precise, and their documentation is flawless for compliance."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">MD</div>
+                    <div class="review-info">
+                        <h4>Michael Dozier</h4>
+                        <p>Justnice Prod LLC</p>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="review-text">"We've shipped many freight loads with PDS in the short time. Their reliability
+                    and communication are outstanding. A true logistics partner."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients/Stats Section -->
+    <section class="clients" id="clients">
+    <div class="section-title">
+        <h2>Our Reach & Impact</h2>
+        <p>Trusted by industry leaders across the globe</p>
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <i class="fas fa-calendar-alt stat-icon"></i>
+            <div class="stat-number">
+                <span class="counter" data-year="2015">0</span>+
+            </div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-truck stat-icon"></i>
+            <div class="stat-number">
+                <span class="counter" data-target="1000">0</span>+
+            </div>
+            <div class="stat-label">Carriers</div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-map-marked-alt stat-icon"></i>
+            <div class="stat-number">
+                <span class="counter" data-target="48">0</span>
+            </div>
+            <div class="stat-label">States Covered</div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-box-open stat-icon"></i>
+            <div class="stat-number">
+                <span class="counter" data-target="8000">0</span>+
+            </div>
+            <div class="stat-label">Loads Delivered</div>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Truck Fleet Section -->
+    <section class="trucks" id="trucks">
+        <div class="section-title">
+            <h2>Our Truck Fleet</h2>
+            <p>Explore our modern, well-maintained fleet of delivery vehicles</p>
+        </div>
+
+        <div class="truck-container">
+            <div class="truck-slider" id="truckSlider">
+                <!-- Truck 1 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">01</div>
+                            <img src="imges/poweronly.jpg" alt="Power Only Truck">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Power Only</h3>
+                            <p>Our flagship long-haul truck with advanced safety features and fuel efficiency
+                                technology.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-gas-pump"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Fuel Efficiency</h4>
+                                        <p>8.5 MPG average</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>26,000 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>1,200 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Collision mitigation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 2 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">02</div>
+                            <img src="imges/dry van.jpg" alt="Dry Van Truck">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Dry Van</h3>
+                            <p>Premium aerodynamic truck designed for maximum efficiency and driver comfort.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-gas-pump"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Fuel Efficiency</h4>
+                                        <p>8.8 MPG average</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>25,500 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>1,100 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Adaptive cruise control</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 3 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">03</div>
+                            <img src="imges/reefer1.webp" alt="Reefer Truck">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Reefer Van</h3>
+                            <p>Ultimate driver-focused truck with advanced technology and superior aerodynamics.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-gas-pump"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Fuel Efficiency</h4>
+                                        <p>8.6 MPG average</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>26,500 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>1,150 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Lane departure warning</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 4 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">04</div>
+                            <img src="imges/flatbed.webp" alt="Flatbed Truck">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Flatbed</h3>
+                            <p>European-inspired design with superior safety features and exceptional fuel economy.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-gas-pump"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Fuel Efficiency</h4>
+                                        <p>9.2 MPG average</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>25,000 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>1,300 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Emergency braking</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 5 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">05</div>
+                            <img src="imges/stepdeck.jpg" alt="Step Deck Truck">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Step Deck</h3>
+                            <p>Versatile workhorse with customizable configurations for various cargo types.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-gas-pump"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Fuel Efficiency</h4>
+                                        <p>8.3 MPG average</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>27,000 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>1,000 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Load sensing system</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 6 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">06</div>
+                            <img src="imges/conestoga.webp" alt="Connestoga Truck">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Connestoga</h3>
+                            <p>Designed for long-haul transportation with excellent stability and load capacity.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-gas-pump"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Fuel Efficiency</h4>
+                                        <p>8.4 MPG average</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>26,500 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>1,050 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Predictive cruise</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 7 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">07</div>
+                            <img src="imges/hotshot.webp" alt="Hotshot">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Hotshot</h3>
+                            <p>Heavy-duty truck built for challenging terrains and extreme weather conditions.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-gas-pump"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Fuel Efficiency</h4>
+                                        <p>7.8 MPG average</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>28,000 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>950 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>All-wheel drive option</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 8 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">08</div>
+                            <img src="imges/box truck.webp" alt="Box Truck">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Box Truck</h3>
+                            <p>Medium-duty truck perfect for urban deliveries and last-mile logistics.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-gas-pump"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Fuel Efficiency</h4>
+                                        <p>12.5 MPG average</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>12,000 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>500 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Maneuverability package</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 9 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">09</div>
+                            <img src="imges/sprinter van.jpg" alt="Sprinter Van">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Sprinter Van</h3>
+                            <p>Temperature-controlled truck for perishable goods with precise climate control.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-snowflake"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Temp Range</h4>
+                                        <p>-20°F to 40°F</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>22,000 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>800 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Real-time monitoring</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truck 10 -->
+                <div class="truck-slide">
+                    <div class="truck-card">
+                        <div class="truck-image">
+                            <div class="truck-number">10</div>
+                            <img src="imges/cargo van.jpg" alt="Cargo Van">
+                        </div>
+                        <div class="truck-details">
+                            <h3>Cargo Van</h3>
+                            <p>Specialized truck for oversized and heavy equipment with securement systems.</p>
+                            <div class="truck-specs">
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-ruler-combined"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Deck Size</h4>
+                                        <p>48ft x 8.5ft</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-weight-hanging"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Capacity</h4>
+                                        <p>48,000 lbs payload</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Range</h4>
+                                        <p>900 miles</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Features</h4>
+                                        <p>Hydraulic liftgate</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="truck-controls">
+            <button class="truck-btn" id="prevTruck">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="truck-btn" id="nextTruck">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="truck-dots" id="truckDots">
+            <!-- Dots will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section" id="quote">
+        <div class="quote-container">
+            <form class="quote-form">
+                <h2>Get a Free Quote</h2>
+                <p>Fill out the form below and our logistics experts will contact you within 24 hours</p>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service">Service Needed *</label>
+                        <select id="service" required>
+                            <option value="">Select a service</option>
+                            <option value="express">Load Searching & Booking</option>
+                            <option value="international">Route Planning</option>
+                            <option value="cold-chain">Driver Coordination</option>
+                            <option value="warehousing">Paperwork & Documentation</option>
+                            <option value="freight">Tracking & Updates</option>
+                            <option value="secure">Broker & Customer Communication</option>
+                            <option value="custom">Full Dispatch</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="shipment-type">Shipment Type</label>
+                        <select id="shipment-type">
+                            <option value="general">General Cargo</option>
+                            <option value="perishable">Perishable Goods</option>
+                            <option value="hazardous">Hazardous Materials</option>
+                            <option value="high-value">High-Value Items</option>
+                            <option value="oversized">Oversized Load</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="origin">Origin City *</label>
+                        <input type="text" id="origin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination City *</label>
+                        <input type="text" id="destination" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Shipment Description *</label>
+                    <textarea id="description"
+                        placeholder="Please describe your shipment including dimensions, weight, quantity, and any special requirements..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Request Quote</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="logo">
+                    <div class="logo-icon">PDS</div>
+                    <div class="logo-text">
+                        <h1>Proper Delivery Services</h1>
+                    </div>
+                </div>
+                <p style="color: var(--medium-text); margin-top: 1.5rem; font-weight: 300; font-size: 1.1rem;">We Move
+                    Your Business Forward</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#clients">Clients & Stats</a></li>
+                    <li><a href="#trucks">Our Fleet</a></li>
+                    <li><a href="#quote">Get Quote</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#services">Load Searching & Booking</a></li>
+                    <li><a href="#services">Route Planning</a></li>
+                    <li><a href="#services">Driver Coordination</a></li>
+                    <li><a href="#services">Paperwork & Documentation</a></li>
+                    <li><a href="#services">Tracking & Updates</a></li>
+                    <li><a href="#services">Broker & Customer Communication</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 375 86th ST,<br>Brooklyn NY 11209</li>
+                    <li><i class="fas fa-phone"></i>(747) 200-5890</li>
+                    <li><i class="fas fa-envelope"></i> properdeliveryservicesllc.pds@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> 24/7 Customer Support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Proper Delivery Services. All rights reserved. | <a href="#">Privacy Policy</a> | <a
+                    href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = navMenu.style.display === 'flex';
+            navMenu.style.display = isOpen ? 'none' : 'flex';
+            mobileMenuToggle.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    navMenu.style.display = 'none';
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Scroll to top button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.quote-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your quote request! Our logistics team will contact you within 24 hours.');
+            this.reset();
+        });
+
+        // Stats counter animation - FIXED VERSION
+        const counters = document.querySelectorAll(".counter");
+
+        const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+        const animateCounter = (counter) => {
+
+            let target;
+
+            // Experience auto calculate
+            if (counter.dataset.year) {
+                target = new Date().getFullYear() - counter.dataset.year;
+            } else {
+                target = parseInt(counter.dataset.target);
+            }
+
+            let start = 0;
+            const duration = 2000;
+            const startTime = performance.now();
+
+            const update = (currentTime) => {
+
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const easedProgress = easeOut(progress);
+                const value = Math.floor(easedProgress * target);
+
+                counter.textContent = value.toLocaleString();
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            };
+
+            requestAnimationFrame(update);
+        };
+
+
+        // Scroll Observer
+        const observer = new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.querySelectorAll(".counter").forEach(counter => {
+                        animateCounter(counter);
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        }, { threshold: 0.4 });
+
+        observer.observe(document.querySelector(".clients"));
+
+        // Set initial opacity for stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px) scale(0.95)';
+        });
+
+        // Truck Slider Functionality
+        const truckSlider = document.getElementById('truckSlider');
+        const prevTruckBtn = document.getElementById('prevTruck');
+        const nextTruckBtn = document.getElementById('nextTruck');
+        const truckDotsContainer = document.getElementById('truckDots');
+
+        let currentTruckIndex = 0;
+        const totalTrucks = 10;
+
+        // Create dots for each truck
+        for (let i = 0; i < totalTrucks; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('truck-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToTruck(i);
+            });
+            truckDotsContainer.appendChild(dot);
+        }
+
+        function goToTruck(index) {
+            currentTruckIndex = index;
+            const translateX = -currentTruckIndex * 10; // 10% per slide (100% / 10 trucks)
+            truckSlider.style.transform = `translateX(${translateX}%)`;
+
+            // Update active dot
+            document.querySelectorAll('.truck-dot').forEach((dot, i) => {
+                if (i === currentTruckIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function nextTruck() {
+            currentTruckIndex = (currentTruckIndex + 1) % totalTrucks;
+            goToTruck(currentTruckIndex);
+        }
+
+        function prevTruck() {
+            currentTruckIndex = (currentTruckIndex - 1 + totalTrucks) % totalTrucks;
+            goToTruck(currentTruckIndex);
+        }
+
+        // Add event listeners
+        prevTruckBtn.addEventListener('click', prevTruck);
+        nextTruckBtn.addEventListener('click', nextTruck);
+
+        // Auto-advance every 5 seconds
+        let autoSlideInterval = setInterval(nextTruck, 5000);
+
+        // Pause auto-slide on hover
+        truckSlider.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        truckSlider.addEventListener('mouseleave', () => {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextTruck, 5000);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevTruck();
+            } else if (e.key === 'ArrowRight') {
+                nextTruck();
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+    <script>
+        $('.stat-number').counterUp({
+            delay: 10,
+            time: 1500
+        });
+    </script>
+
+
+</body>
+
+</html>
