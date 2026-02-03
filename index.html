@@ -692,7 +692,7 @@
             letter-spacing: 1px;
         }
 
-        /* Truck Fleet Section */
+        /* Truck Fleet Section - IMPROVED */
         .trucks {
             padding: 8rem 2rem;
             background-color: var(--secondary-black);
@@ -724,7 +724,7 @@
             display: flex;
             width: 1000%;
             height: 100%;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .truck-slide {
@@ -749,6 +749,11 @@
             align-items: center;
             border: 2px solid rgba(255, 215, 0, 0.2);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s;
+        }
+
+        .truck-card:hover {
+            transform: translateY(-5px);
         }
 
         .truck-image {
@@ -763,6 +768,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             transition: transform 0.5s;
         }
 
@@ -785,6 +791,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            z-index: 2;
         }
 
         .truck-details h3 {
@@ -796,30 +803,43 @@
             letter-spacing: 1px;
         }
 
+        .truck-details > p {
+            color: var(--medium-text);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
         .truck-specs {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .spec-item {
             display: flex;
             align-items: center;
             gap: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .spec-item:hover {
+            transform: translateX(5px);
         }
 
         .spec-icon {
             color: var(--accent-gold);
             font-size: 1.5rem;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: rgba(255, 215, 0, 0.1);
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px solid rgba(255, 215, 0, 0.2);
+            flex-shrink: 0;
         }
 
         .spec-content h4 {
@@ -863,6 +883,10 @@
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
         }
 
+        .truck-btn:active {
+            transform: translateY(0) scale(0.95);
+        }
+
         .truck-dots {
             display: flex;
             justify-content: center;
@@ -884,6 +908,11 @@
             background: var(--accent-gold);
             transform: scale(1.2);
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .truck-dot:hover {
+            background: var(--accent-gold);
+            transform: scale(1.1);
         }
 
         /* Quote Section */
@@ -1356,6 +1385,18 @@
             .truck-card {
                 padding: 1.5rem;
             }
+
+            .spec-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .truck-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
         }
 
         /* Scroll to Top Button */
@@ -1605,7 +1646,7 @@
         </div>
     </section>
 
-    <!-- Clients/Stats Section - UPDATED -->
+    <!-- Clients/Stats Section -->
     <section class="clients" id="clients">
         <div class="section-title">
             <h2>Our Reach & Impact</h2>
@@ -1657,43 +1698,42 @@
                         </div>
                         <div class="truck-details">
                             <h3>Power Only</h3>
-                            <p>Our flagship long-haul truck with advanced safety features and fuel efficiency
-                                technology.</p>
+                            <p>Specialized service providing just the truck and driver without trailer. Perfect for shippers who already have their own trailer.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-gas-pump"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Fuel Efficiency</h4>
-                                        <p>8.5 MPG average</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$1.20–$2.50/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Lanes</h4>
+                                        <p>OTR, Regional, Spot Market</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fa-solid fa-weight-hanging"></i>
                                     </div>
                                     <div class="spec-content">
                                         <h4>Capacity</h4>
-                                        <p>26,000 lbs payload</p>
+                                        <p>Up to 80,000 lbs GCWR</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>1,200 miles</p>
-                                    </div>
-                                </div>
-                                <div class="spec-item">
-                                    <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
-                                    </div>
-                                    <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Collision mitigation</p>
+                                        <h4>Load Type</h4>
+                                        <p>Trailer Transportation</p>
                                     </div>
                                 </div>
                             </div>
@@ -1710,42 +1750,42 @@
                         </div>
                         <div class="truck-details">
                             <h3>Dry Van</h3>
-                            <p>Premium aerodynamic truck designed for maximum efficiency and driver comfort.</p>
+                            <p>Enclosed trailer protection for general freight, electronics, packaged goods, and non-perishable items.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-gas-pump"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Fuel Efficiency</h4>
-                                        <p>8.8 MPG average</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$1.50–$3.00/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Capacity</h4>
-                                        <p>25,500 lbs payload</p>
+                                        <h4>Lanes</h4>
+                                        <p>OTR, Regional, Dedicated</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-ruler-horizontal"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>1,100 miles</p>
+                                        <h4>Trailer Size</h4>
+                                        <p>48'–53' x 102"</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Adaptive cruise control</p>
+                                        <h4>Load Type</h4>
+                                        <p>General Freight, Palletized</p>
                                     </div>
                                 </div>
                             </div>
@@ -1762,42 +1802,42 @@
                         </div>
                         <div class="truck-details">
                             <h3>Reefer Van</h3>
-                            <p>Ultimate driver-focused truck with advanced technology and superior aerodynamics.</p>
+                            <p>Temperature-controlled transportation for perishable goods, pharmaceuticals, and sensitive products.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-gas-pump"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Fuel Efficiency</h4>
-                                        <p>8.6 MPG average</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$1.80–$3.50/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Capacity</h4>
-                                        <p>26,500 lbs payload</p>
+                                        <h4>Lanes</h4>
+                                        <p>OTR, Regional, Dedicated</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-snowflake"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>1,150 miles</p>
+                                        <h4>Temp Range</h4>
+                                        <p>-20°F to 75°F</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Lane departure warning</p>
+                                        <h4>Load Type</h4>
+                                        <p>Perishables, Pharmaceuticals</p>
                                     </div>
                                 </div>
                             </div>
@@ -1814,42 +1854,42 @@
                         </div>
                         <div class="truck-details">
                             <h3>Flatbed</h3>
-                            <p>European-inspired design with superior safety features and exceptional fuel economy.</p>
+                            <p>Open deck transportation for oversized, heavy, or irregularly shaped cargo requiring easy loading access.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-gas-pump"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Fuel Efficiency</h4>
-                                        <p>9.2 MPG average</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$2.00–$4.00/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Capacity</h4>
-                                        <p>25,000 lbs payload</p>
+                                        <h4>Lanes</h4>
+                                        <p>OTR, Regional, Specialized</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-ruler-horizontal"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>1,300 miles</p>
+                                        <h4>Trailer Size</h4>
+                                        <p>48'–53' x 102"</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Emergency braking</p>
+                                        <h4>Load Type</h4>
+                                        <p>Construction, Machinery, Steel</p>
                                     </div>
                                 </div>
                             </div>
@@ -1866,42 +1906,42 @@
                         </div>
                         <div class="truck-details">
                             <h3>Step Deck</h3>
-                            <p>Versatile workhorse with customizable configurations for various cargo types.</p>
+                            <p>Lower deck height for taller loads that exceed standard height restrictions on flatbed trailers.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-gas-pump"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Fuel Efficiency</h4>
-                                        <p>8.3 MPG average</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$2.20–$4.50/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Capacity</h4>
-                                        <p>27,000 lbs payload</p>
+                                        <h4>Lanes</h4>
+                                        <p>OTR, Regional, Specialized</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-ruler-vertical"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>1,000 miles</p>
+                                        <h4>Max Height</h4>
+                                        <p>10'–12' with permits</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Load sensing system</p>
+                                        <h4>Load Type</h4>
+                                        <p>Oversized, Heavy Equipment</p>
                                     </div>
                                 </div>
                             </div>
@@ -1914,46 +1954,46 @@
                     <div class="truck-card">
                         <div class="truck-image">
                             <div class="truck-number">06</div>
-                            <img src="imges/conestoga.webp" alt="Connestoga Truck">
+                            <img src="imges/conestoga.webp" alt="Conestoga Truck">
                         </div>
                         <div class="truck-details">
-                            <h3>Connestoga</h3>
-                            <p>Designed for long-haul transportation with excellent stability and load capacity.</p>
+                            <h3>Conestoga</h3>
+                            <p>Convertible flatbed with retractable tarp system offering flatbed convenience with dry van protection.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-gas-pump"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Fuel Efficiency</h4>
-                                        <p>8.4 MPG average</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$2.50–$5.00/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Capacity</h4>
-                                        <p>26,500 lbs payload</p>
+                                        <h4>Lanes</h4>
+                                        <p>OTR, Regional, Specialized</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-umbrella"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>1,050 miles</p>
+                                        <h4>Coverage</h4>
+                                        <p>Full tarp protection</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Predictive cruise</p>
+                                        <h4>Load Type</h4>
+                                        <p>High-Value, Sensitive Cargo</p>
                                     </div>
                                 </div>
                             </div>
@@ -1966,46 +2006,46 @@
                     <div class="truck-card">
                         <div class="truck-image">
                             <div class="truck-number">07</div>
-                            <img src="imges/hotshot.webp" alt="Hotshot">
+                            <img src="imges/hotshot.webp" alt="Hotshot Truck">
                         </div>
                         <div class="truck-details">
                             <h3>Hotshot</h3>
-                            <p>Heavy-duty truck built for challenging terrains and extreme weather conditions.</p>
+                            <p>Expedited smaller loads with faster transit times using pickup trucks with trailers under 26,000 lbs.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-gas-pump"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Fuel Efficiency</h4>
-                                        <p>7.8 MPG average</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$1.80–$3.50/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Capacity</h4>
-                                        <p>28,000 lbs payload</p>
+                                        <h4>Lanes</h4>
+                                        <p>Regional, Local, Expedited</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-bolt"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>950 miles</p>
+                                        <h4>Service</h4>
+                                        <p>Expedited, Time-Sensitive</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>All-wheel drive option</p>
+                                        <h4>Load Type</h4>
+                                        <p>Small Freight, Parts, Urgent</p>
                                     </div>
                                 </div>
                             </div>
@@ -2022,42 +2062,42 @@
                         </div>
                         <div class="truck-details">
                             <h3>Box Truck</h3>
-                            <p>Medium-duty truck perfect for urban deliveries and last-mile logistics.</p>
+                            <p>Medium-duty straight trucks ideal for local deliveries, last-mile logistics, and smaller freight loads.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-gas-pump"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Fuel Efficiency</h4>
-                                        <p>12.5 MPG average</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$1.20–$2.50/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
+                                    </div>
+                                    <div class="spec-content">
+                                        <h4>Lanes</h4>
+                                        <p>Local, Regional, Metro Areas</p>
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fa-solid fa-ruler-horizontal"></i>
                                     </div>
                                     <div class="spec-content">
                                         <h4>Capacity</h4>
-                                        <p>12,000 lbs payload</p>
+                                        <p>10'–26' box length</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>500 miles</p>
-                                    </div>
-                                </div>
-                                <div class="spec-item">
-                                    <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
-                                    </div>
-                                    <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Maneuverability package</p>
+                                        <h4>Load Type</h4>
+                                        <p>Last-Mile, Small Freight</p>
                                     </div>
                                 </div>
                             </div>
@@ -2074,42 +2114,42 @@
                         </div>
                         <div class="truck-details">
                             <h3>Sprinter Van</h3>
-                            <p>Temperature-controlled truck for perishable goods with precise climate control.</p>
+                            <p>Cargo van service for small parcels, documents, and light freight with door-to-door delivery capability.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-snowflake"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Temp Range</h4>
-                                        <p>-20°F to 40°F</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$0.80–$1.80/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Capacity</h4>
-                                        <p>22,000 lbs payload</p>
+                                        <h4>Lanes</h4>
+                                        <p>Local, Metro, Courier</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-truck-fast"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>800 miles</p>
+                                        <h4>Service</h4>
+                                        <p>Same-Day, Express</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Real-time monitoring</p>
+                                        <h4>Load Type</h4>
+                                        <p>Small Parcels, Documents</p>
                                     </div>
                                 </div>
                             </div>
@@ -2126,42 +2166,42 @@
                         </div>
                         <div class="truck-details">
                             <h3>Cargo Van</h3>
-                            <p>Specialized truck for oversized and heavy equipment with securement systems.</p>
+                            <p>Standard cargo van service for general freight transportation with fully enclosed protection.</p>
                             <div class="truck-specs">
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-ruler-combined"></i>
+                                        <i class="fa-solid fa-dollar-sign"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Deck Size</h4>
-                                        <p>48ft x 8.5ft</p>
+                                        <h4>Rate/mile</h4>
+                                        <p>$0.80–$1.50/mi</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-weight-hanging"></i>
+                                        <i class="fa-solid fa-road"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Capacity</h4>
-                                        <p>48,000 lbs payload</p>
+                                        <h4>Lanes</h4>
+                                        <p>OTR, Local, Regional</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-road"></i>
+                                        <i class="fa-solid fa-ruler-horizontal"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Range</h4>
-                                        <p>900 miles</p>
+                                        <h4>Length</h4>
+                                        <p>Standard</p>
                                     </div>
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-icon">
-                                        <i class="fas fa-cogs"></i>
+                                        <i class="fa-solid fa-box"></i>
                                     </div>
                                     <div class="spec-content">
-                                        <h4>Features</h4>
-                                        <p>Hydraulic liftgate</p>
+                                        <h4>Load Type</h4>
+                                        <p>General Freight, Fully Enclosed</p>
                                     </div>
                                 </div>
                             </div>
@@ -2396,9 +2436,10 @@
             
             if (year) {
                 // Calculate years of experience
-                target = new Date().getFullYear() - parseInt(year);
+                const currentYear = new Date().getFullYear();
+                target = currentYear - parseInt(year);
             } else {
-                target = parseInt(finalValue);
+                target = parseInt(finalValue.replace('+', ''));
             }
             
             const duration = 2000;
@@ -2419,7 +2460,7 @@
                     requestAnimationFrame(updateCounter);
                 } else {
                     // Add plus sign if needed
-                    if (finalValue && (finalValue.includes('+') || finalValue > 1000)) {
+                    if (finalValue && finalValue.includes('+')) {
                         element.textContent = target.toLocaleString() + '+';
                     } else {
                         element.textContent = target.toLocaleString();
@@ -2454,7 +2495,7 @@
         
         observer.observe(statsSection);
 
-        // Truck Slider Functionality
+        // Truck Slider Functionality - IMPROVED
         const truckSlider = document.getElementById('truckSlider');
         const prevTruckBtn = document.getElementById('prevTruck');
         const nextTruckBtn = document.getElementById('nextTruck');
@@ -2462,16 +2503,20 @@
 
         let currentTruckIndex = 0;
         const totalTrucks = 10;
+        let autoSlideInterval;
 
         // Create dots for each truck
-        for (let i = 0; i < totalTrucks; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('truck-dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToTruck(i);
-            });
-            truckDotsContainer.appendChild(dot);
+        function createDots() {
+            truckDotsContainer.innerHTML = ''; // Clear existing dots
+            for (let i = 0; i < totalTrucks; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('truck-dot');
+                if (i === currentTruckIndex) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    goToTruck(i);
+                });
+                truckDotsContainer.appendChild(dot);
+            }
         }
 
         function goToTruck(index) {
@@ -2499,31 +2544,82 @@
             goToTruck(currentTruckIndex);
         }
 
-        // Add event listeners
-        prevTruckBtn.addEventListener('click', prevTruck);
-        nextTruckBtn.addEventListener('click', nextTruck);
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextTruck, 5000);
+        }
 
-        // Auto-advance every 5 seconds
-        let autoSlideInterval = setInterval(nextTruck, 5000);
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Initialize the slider
+        function initSlider() {
+            createDots();
+            startAutoSlide();
+        }
+
+        // Add event listeners
+        prevTruckBtn.addEventListener('click', () => {
+            prevTruck();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+
+        nextTruckBtn.addEventListener('click', () => {
+            nextTruck();
+            stopAutoSlide();
+            startAutoSlide();
+        });
 
         // Pause auto-slide on hover
-        truckSlider.addEventListener('mouseenter', () => {
-            clearInterval(autoSlideInterval);
-        });
-
-        truckSlider.addEventListener('mouseleave', () => {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(nextTruck, 5000);
-        });
+        truckSlider.addEventListener('mouseenter', stopAutoSlide);
+        truckSlider.addEventListener('mouseleave', startAutoSlide);
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
                 prevTruck();
+                stopAutoSlide();
+                startAutoSlide();
             } else if (e.key === 'ArrowRight') {
                 nextTruck();
+                stopAutoSlide();
+                startAutoSlide();
             }
         });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        truckSlider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoSlide();
+        });
+
+        truckSlider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoSlide();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next truck
+                    nextTruck();
+                } else {
+                    // Swipe right - previous truck
+                    prevTruck();
+                }
+            }
+        }
+
+        // Initialize the slider
+        initSlider();
     </script>
 </body>
 
